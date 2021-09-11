@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <Button
+        android:id="@+id/list_btn"
+        android:text="get list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/top_guide"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/live_btn"
+        android:text="get live"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/top_guide"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/list_btn"
+        android:layout_marginLeft="20dp"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/welcome_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_message"
+        android:textStyle="bold"
+        android:textColor="@color/design_default_color_primary_variant"
+        android:textAlignment="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/amount_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/top_guide"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4"/>
+
+    <EditText
+        android:id="@+id/amount_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Please enter amount"
+        android:text="1.0"
+        android:textAlignment="center"
+        android:imeActionLabel="Done"
+        android:imeOptions="actionNext"
+        android:inputType="numberDecimal"
+        android:nextFocusDown="@+id/parentedit"
+        android:singleLine="true"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_text"
+        app:layout_constraintBottom_toTopOf="@+id/currency_selector_spinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <com.jaredrummler.materialspinner.MaterialSpinner
+        android:id="@+id/currency_selector_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintTop_toBottomOf="@+id/amount_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/top_guide"
+        app:ms_dropdown_max_height="200dp"/>
+
+    <TextView
+        android:id="@+id/display_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/default_config"
+        android:background="@color/cardview_shadow_end_color"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@+id/currency_selector_spinner"
+        app:layout_constraintBottom_toTopOf="@+id/top_guide"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/exchanges_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/top_guide"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_guide"/>
+
+    <ProgressBar
+        android:id="@+id/progress_circular"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/top_guide"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_guide"
+        android:tooltipText="@string/progress_text"/>
+
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottom_guide"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9"/>
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">PayPay Application</string>
+    <string name="welcome_message">Welcome to currency Exchanger Application. Please enter amount
+    in test box and select your base currenccy to check value of the amount in worldwide exchanges.</string>
+    <string name="progress_text">Please wait while we are fetching data</string>
+    <string name="default_config">It is showing the exchange rate for %1$s %2$s</string>
+</resources>
